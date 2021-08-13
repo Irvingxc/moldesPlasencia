@@ -85,6 +85,7 @@ Route::post('/buscar_remision_imprimir_recibidas',[App\Http\Controllers\MoldesCo
 //REMISIONES
 Route::get('/remisiones_paraiso/{id}',[App\Http\Controllers\MoldesController::class, 'remisiones' ])->name('remisiones');
 Route::post('/remisiones_paraiso/{id}',[App\Http\Controllers\MoldesController::class, 'remisiones' ])->name('remisiones');
+Route::delete('/eliminar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'deleteremisiones' ])->name('eliminar_remision_Paraiso');
 Route::get('/remisiones_paraiso/crear/{id}',[App\Http\Controllers\MoldesController::class, 'insertarremisiones' ])->name('insertarremisiones');
 Route::post('/remisiones_paraiso/crear/{id}',[App\Http\Controllers\MoldesController::class, 'insertarremisiones' ])->name('insertarremisiones');
 
@@ -163,6 +164,7 @@ Route::post('/remisiones_sanMarcos/crear/{id}',[App\Http\Controllers\sucursal_sa
 
 Route::post('/remisiones_sanMarcos/ac/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'actualizarremision' ])->name('actualizarremision_sanMarcos');
 Route::get('/buscar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'buscar_remision' ])->name('buscar_remision_sanMarcos');
+Route::delete('/eliminar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'deleteremisiones' ])->name('eliminar_remision_sanMarcos');
 Route::post('/buscar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'buscar_remision' ])->name('buscar_remision_sanMarcos');
 
 

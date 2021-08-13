@@ -22,13 +22,13 @@ class VitolasImport implements ToModel
         if ($row[0] == null || $row[0] == "TABACOS DE ORIENTE S. DE R.L." || $row[0]=="INVENTARIO DE MOLDES" ||$row[0]=="VITOLA"){
             $molde = null;
           } else {
-            $molde_existe = Vitola::where('vitola', $row[0])->count();
+            $molde_existe = Vitola::where('vitola', $row[0])->where('id_planta', 2)->count();
             if ($molde_existe > 0) {
               $molde = null;
             } else {
               $molde =  new vitola([
                 'vitola' => $row[0],
-                'id_planta' => 3,
+                'id_planta' => 2,
               ]);
             }
           }

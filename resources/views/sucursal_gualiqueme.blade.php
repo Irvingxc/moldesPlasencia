@@ -414,7 +414,7 @@
                                 <input class="form-control" id="mo_bueno" name="mo_bueno" placeholder="Cantidad"
                                     type="number" value=""autocomplete="off">
                             </div>
-                            <div class="mb-3 col">
+                            <div class="mb-3 col" hidden>
                                 <label for="txt_irregulares" class="form-label">Irregulares</label>
                                 <input class="form-control" id="mo_irregular" name="mo_irregular" placeholder="Cantidad"
                                     type="number"autocomplete="off">

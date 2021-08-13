@@ -125,7 +125,7 @@ class sucursal_sanMarcos extends Controller
 
                 $bodega = \DB::select('call traer_cantidad(:id_planta)',
                 [
-                    'id_planta' => (int)$request->id_planta
+                    'id_planta' => (int)3
                 ]);
 
                 $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
@@ -137,6 +137,18 @@ class sucursal_sanMarcos extends Controller
                 ->with('remisionesenviadas',$remisionesenviadas)->with('remisionesrecibidas',$remisionesrecibidas)->with('bodega',$bodega)->with('abrir', $abrir);
 
     }
+
+
+    public function deleteremisiones(Request $request, $id){
+        $molde = \DB::select('call deleteremisiones(:id_remision)',
+        [
+        'id_remision' => $id
+        ]);
+
+        return REDIRECT('/remisiones_sanMarcos/3');
+    }
+
+
 
 
         public function insertarremisiones( Request $request)
@@ -174,14 +186,14 @@ class sucursal_sanMarcos extends Controller
                 $descripcion = "Remisión de moldes con la descripción: ".$request->id_tipo." enviada. Favor confirmar la entrega.";
 
 
-                $molde = \DB::select('call insertar_notificaciones(:tipo,:descripcion,:activo,:idplanta,:planta)',
+               /* $molde = \DB::select('call insertar_notificaciones(:tipo,:descripcion,:activo,:idplanta,:planta)',
                 [ 'tipo' => "envio",
                'descripcion' => $descripcion,
                  'activo' => (int)$request->activo,
                'idplanta' => (string)$request->id_planta,
                 'planta' => (string)$request->id_otra_plan
 
-                ]);
+                ]);*/
 
                 $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
                     'id' => auth()->user()->id_planta ] );
@@ -195,8 +207,7 @@ class sucursal_sanMarcos extends Controller
 
                 $remisionesrecibidas = \DB::select("call mostrar_remisiones_recibidas('San Marcos')");
 
-                return view('remisionessanMarcos')->with ('notificaciones', $notificaciones)->with('titulo',$titulo)->with('moldes',$moldes) ->with('remisionesenviadas',$remisionesenviadas)
-                 ->with('remisionesrecibidas',$remisionesrecibidas)->with('bodega',$bodega)->with('abrir', $abrir) ->with('fechai',$fechai)->with('fechaf',$fechaf);
+                return REDIRECT('/remisiones_sanMarcos/3');
         }
 
 

@@ -128,7 +128,7 @@ use Carbon\Carbon;
 
                 $bodega = \DB::select('call traer_cantidad(:id_planta)',
                 [
-                    'id_planta' => (int)$request->id_planta
+                    'id_planta' => (int)1
                 ]);
 
                 $abrir ="3";
@@ -139,6 +139,16 @@ use Carbon\Carbon;
                 ->with('remisionesenviadas',$remisionesenviadas)->with('remisionesrecibidas',$remisionesrecibidas)->with('bodega',$bodega)->with('abrir', $abrir)
                 ->with('fechai',$fechai)->with('fechaf',$fechaf);
          }
+
+
+         public function deleteremisiones(Request $request, $id){
+            $molde = \DB::select('call deleteremisiones(:id_remision)',
+            [
+            'id_remision' => $id
+            ]);
+
+            return REDIRECT('/remisiones_sanMarcos/3');
+        }
 
 
 

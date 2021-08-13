@@ -407,7 +407,7 @@
                                     <input class="form-control" id="mo_bueno" name="mo_bueno" placeholder="Cantidad" style= "width:125px; text-align:right;"
                                         type="number" value=""autocomplete="off">
                                 </div>
-                                <div class="mb-3 col">
+                                <div class="mb-3 col" hidden>
                                     <label for="txt_irregulares" class="form-label" style= "width:125px; text-align:center;"> Irregulares</label>
                                     <input class="form-control" id="mo_irregular" name="mo_irregular" style= "width:125px; text-align:right;"
                                         placeholder="Cantidad" type="number"autocomplete="off">
