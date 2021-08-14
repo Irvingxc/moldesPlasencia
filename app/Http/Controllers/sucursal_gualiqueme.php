@@ -180,7 +180,7 @@ class sucursal_gualiqueme extends Controller
 
                 $bodega = \DB::select('call traer_cantidad(:id_planta)',
                 [
-                    'id_planta' => (int)$request->id_planta
+                    'id_planta' => (int)4
                 ]);
 
 
@@ -209,8 +209,10 @@ class sucursal_gualiqueme extends Controller
 
                 if($request->txt_otra_fabrica != null){
                     $empresa = $request->txt_otra_fabrica;
+                    $check = 1;
                 }else{
                     $empresa = $request->txt_sucursales;
+                    $check = $request->chequear;
                 }
 
 
@@ -223,7 +225,7 @@ class sucursal_gualiqueme extends Controller
                 'estado_moldes' => (string)$request->txt_estado,
                 'tipo_molde' => (string)$request->id_tipo,
                 'cantidad' => (int)$request->txt_cantidad,
-                'chequear' => (int)$request->chequear
+                'chequear' => (int)$check
                 ]);
 
 
@@ -255,9 +257,19 @@ class sucursal_gualiqueme extends Controller
                     'id' => auth()->user()->id_planta ] );
                 $abrir = "3";
 
-                return view('remisionesgualiqueme')->with('titulo',$titulo)->with ('notificaciones', $notificaciones)->with('moldes',$moldes) ->with('remisionesenviadas',$remisionesenviadas)
+                /*return view('remisionesgualiqueme')->with('titulo',$titulo)->with ('notificaciones', $notificaciones)->with('moldes',$moldes) ->with('remisionesenviadas',$remisionesenviadas)
                  ->with('remisionesrecibidas',$remisionesrecibidas)->with('bodega',$bodega)->with('abrir', $abrir)->with('fecha', $fecha)
-                 ->with('fechai',$fechai)->with('fechaf',$fechaf);
+                 ->with('fechai',$fechai)->with('fechaf',$fechaf);*/
+                 return REDIRECT('/remisiones_gualiqueme/4');
+        }
+
+        public function deleteremisiones(Request $request, $id){
+            $molde = \DB::select('call deleteremisiones(:id_remision)',
+            [
+            'id_remision' => $id
+            ]);
+
+            return REDIRECT('/remisiones_gualiqueme/4');
         }
 
 

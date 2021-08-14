@@ -85,7 +85,7 @@ Route::post('/buscar_remision_imprimir_recibidas',[App\Http\Controllers\MoldesCo
 //REMISIONES
 Route::get('/remisiones_paraiso/{id}',[App\Http\Controllers\MoldesController::class, 'remisiones' ])->name('remisiones');
 Route::post('/remisiones_paraiso/{id}',[App\Http\Controllers\MoldesController::class, 'remisiones' ])->name('remisiones');
-Route::delete('/eliminar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'deleteremisiones' ])->name('eliminar_remision_Paraiso');
+Route::delete('/eliminar_remision_Paraiso/{id}',[App\Http\Controllers\MoldesController::class, 'deleteremisiones' ])->name('eliminar_remision_Paraiso');
 Route::get('/remisiones_paraiso/crear/{id}',[App\Http\Controllers\MoldesController::class, 'insertarremisiones' ])->name('insertarremisiones');
 Route::post('/remisiones_paraiso/crear/{id}',[App\Http\Controllers\MoldesController::class, 'insertarremisiones' ])->name('insertarremisiones');
 
@@ -119,6 +119,7 @@ Route::get('/remisiones_moroceli/{id}',[App\Http\Controllers\sucursal_moroceli::
 Route::post('/remisiones_moroceli/{id}',[App\Http\Controllers\sucursal_moroceli::class, 'remisiones' ])->name('remisiones_moroceli');
 Route::get('/remisiones_moroceli/crear/{id}',[App\Http\Controllers\sucursal_moroceli::class, 'insertarremisiones' ])->name('insertarremisiones_moroc');
 Route::post('/remisiones_moroceli/crear/{id}',[App\Http\Controllers\sucursal_moroceli::class, 'insertarremisiones' ])->name('insertarremisiones_moroceli');
+Route::delete('/eliminar_remision_Moroceli/{id}',[App\Http\Controllers\sucursal_moroceli::class, 'deleteremisiones' ])->name('eliminar_remision_Moroceli');
 
 Route::post('/remisiones_moroceli/a/{id}',[App\Http\Controllers\sucursal_moroceli::class, 'actualizarremision' ])->name('actualizarremision_moroceli');
 Route::get('/remisiones_moroceli/a/{id}',[App\Http\Controllers\sucursal_moroceli::class, 'actualizarremision' ])->name('actualizarremision_moroceli');
@@ -202,6 +203,7 @@ Route::post('/imprimirtablagualiqueme/{id}',[App\Http\Controllers\sucursal_guali
 
 Route::get('/remisiones_gualiqueme/{id}',[App\Http\Controllers\sucursal_gualiqueme::class, 'remisiones' ])->name('remisiones_gualiqueme');
 Route::post('/remisiones_gualiqueme/{id}',[App\Http\Controllers\sucursal_gualiqueme::class, 'remisiones' ])->name('remisiones_gualiqueme');
+Route::delete('/eliminar_remision_Gualiqueme/{id}',[App\Http\Controllers\sucursal_gualiqueme::class, 'deleteremisiones' ])->name('eliminar_remision_Gualiqueme');
 Route::get('/remisiones_gualiqueme/crear/{id}',[App\Http\Controllers\sucursal_gualiqueme::class, 'insertarremisiones' ])->name('insertarremisiones_gualiqueme');
 Route::post('/remisiones_gualiqueme/crear/{id}',[App\Http\Controllers\sucursal_gualiqueme::class, 'insertarremisiones' ])->name('insertarremisiones_gualiqueme');
 Route::post('/remisiones_gualiqueme/a/{id}',[App\Http\Controllers\sucursal_gualiqueme::class, 'actualizarremision' ])->name('actualizarremision_gualiqueme');

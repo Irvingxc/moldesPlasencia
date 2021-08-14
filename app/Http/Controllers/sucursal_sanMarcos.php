@@ -163,8 +163,10 @@ class sucursal_sanMarcos extends Controller
 
                 if($request->txt_otra_fabrica != null){
                     $empresa = $request->txt_otra_fabrica;
+                    $check = 1;
                 }else{
                     $empresa = $request->txt_sucursales;
+                    $check = $request->chequear;
                 }
 
                 $bodega = \DB::select('call traer_cantidad(:id_planta)',

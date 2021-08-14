@@ -188,7 +188,7 @@ class sucursal_moroceli extends Controller
 
                 $bodega = \DB::select('call traer_cantidad(:id_planta)',
                 [
-                    'id_planta' => (int)$request->id_planta
+                    'id_planta' => (int)2
                 ]);
 
                 $abrir = "3";
@@ -196,6 +196,17 @@ class sucursal_moroceli extends Controller
                 ->with('remisionesenviadas',$remisionesenviadas)->with ('notificaciones', $notificaciones)->with('remisionesrecibidas',$remisionesrecibidas)->with('bodega',$bodega)->with('abrir', $abrir);
 
         }
+
+        public function deleteremisiones(Request $request, $id){
+            $molde = \DB::select('call deleteremisiones(:id_remision)',
+            [
+            'id_remision' => $id
+            ]);
+
+            return REDIRECT('/remisiones_moroceli/2');
+        }
+
+
 
 
         public function insertarremisiones( Request $request)
@@ -225,8 +236,10 @@ class sucursal_moroceli extends Controller
 
                  if($request->txt_otra_fabrica != null){
                     $empresa = $request->txt_otra_fabrica;
+                    $check = 1;
                 }else{
                     $empresa = $request->txt_sucursales;
+                    $check = $request->chequear;
                 }
 
                 $molde = \DB::select('call insertar_remisiones(:fecha,:id_planta,:nombre_fabrica,:estado_moldes,:tipo_molde,:cantidad,:chequear)',
@@ -253,9 +266,10 @@ class sucursal_moroceli extends Controller
                 ]);
 
                 $abrir = "3";
-
-                return view('remisionesmoroceli')->with('titulo',$titulo)->with ('notificaciones', $notificaciones)->with('moldes',$moldes)->with('fechai',$fechai)->with('fechaf',$fechaf)
+                return REDIRECT('/remisiones_moroceli/2');
+                /*return view('remisionesmoroceli')->with('titulo',$titulo)->with ('notificaciones', $notificaciones)->with('moldes',$moldes)->with('fechai',$fechai)->with('fechaf',$fechaf)
                 ->with('remisionesenviadas',$remisionesenviadas)->with('remisionesrecibidas',$remisionesrecibidas)->with('bodega',$bodega)->with('abrir', $abrir);
+                */
         }
 
 

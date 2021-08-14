@@ -147,7 +147,7 @@ use Carbon\Carbon;
             'id_remision' => $id
             ]);
 
-            return REDIRECT('/remisiones_sanMarcos/3');
+            return REDIRECT('/remisiones_paraiso/1');
         }
 
 
@@ -165,8 +165,10 @@ use Carbon\Carbon;
 
                 if($request->txt_otra_fabrica != null){
                     $empresa = $request->txt_otra_fabrica;
+                    $check = 1;
                 }else{
                     $empresa = $request->txt_sucursales;
+                    $check = $request->chequear;
                 }
 
                 $bodega = \DB::select('call traer_cantidad(:id_planta)',
@@ -183,7 +185,7 @@ use Carbon\Carbon;
                 'estado_moldes' => (string)$request->txt_estado,
                 'tipo_molde' => (string)$request->id_tipo,
                 'cantidad' => (int)$request->txt_cantidad,
-                'chequear' => (int)$request->chequear
+                'chequear' => (int)$check
                 ]);
 
                 $descripcion = "Remisión de moldes con la descripción: ".$request->id_tipo." enviada. Favor confirmar la entrega.";
@@ -206,10 +208,11 @@ use Carbon\Carbon;
                 $remisionesrecibidas = \DB::select("call mostrar_remisiones_recibidas('Paraíso Cigar')");
 
                 $abrir = "3";
+                return REDIRECT('/remisiones_paraiso/1');
 
-                return view('remisionesparaiso')->with('titulo',$titulo)->with('moldes',$moldes)->with ('notificaciones', $notificaciones)
+               /* return view('remisionesparaiso')->with('titulo',$titulo)->with('moldes',$moldes)->with ('notificaciones', $notificaciones)
                 ->with('remisionesenviadas',$remisionesenviadas)      ->with('remisionesrecibidas',$remisionesrecibidas)
-                 ->with('bodega',$bodega)->with('abrir', $abrir)->with('fechai',$fechai)->with('fechaf',$fechaf);
+                 ->with('bodega',$bodega)->with('abrir', $abrir)->with('fechai',$fechai)->with('fechaf',$fechaf);*/
      }
 
 
