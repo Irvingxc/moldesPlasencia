@@ -182,7 +182,7 @@ class sucursal_sanMarcos extends Controller
                 'estado_moldes' => (string)$request->txt_estado,
                 'tipo_molde' => (string)$request->id_tipo,
                 'cantidad' => (int)$request->txt_cantidad,
-                'chequear' => (int)$request->chequear
+                'chequear' => (int)$check
                 ]);
 
                 $descripcion = "Remisión de moldes con la descripción: ".$request->id_tipo." enviada. Favor confirmar la entrega.";

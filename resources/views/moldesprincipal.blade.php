@@ -106,6 +106,7 @@
 
 
     </div>
+    @if (auth()->user()->id_planta == 0)
     <div class="row">
 
 
@@ -139,6 +140,7 @@
 
 
 </div>
+@endif
 
 
 
