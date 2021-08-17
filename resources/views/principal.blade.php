@@ -12,9 +12,17 @@
     href="{{ URL::asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css') }}"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <!-- Our Custom CSS -->
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
 <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+    .select2-selection {
+  height: 50px !important;
+
+}
+  </style>
 
 
 
@@ -92,7 +100,7 @@
                 </button>
 
 
-                <div class=" titulo mr-auto2">               
+                <div class=" titulo mr-auto2">
                     <span style="margin-left:5px;">Contenido: <?php echo $titulo?></span>
                 </div>
 
@@ -104,13 +112,13 @@
                         <li class="nav-item">
                             <form action="" method="Post">
 
-                             
-                            <?php   if(count($notificaciones) === 0 || auth()->user()->id_planta == 0){                    
+
+                            <?php   if(count($notificaciones) === 0 || auth()->user()->id_planta == 0){
                                 echo'<a class="nav-link"  id = "mo"  name="mo"data-toggle="modal" data-target="" onclick= "abrir()" style="position: static;">';
 
 
                                 echo '  <div>';
-                                
+
                               echo ' <span display="none" id="notificacion" name="notificacion" hidden class="blue" >';
                               echo count($notificaciones);
                               echo ' </span>';
@@ -122,7 +130,7 @@
                                 echo    '       d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />';
                                 echo     '</svg>';
 
-                             
+
                               echo '  </div>';
 
 
@@ -130,7 +138,7 @@
 
                               echo '<script>document.formulario_noti.action = ""</script> ';
                               echo '<script>event.preventDefault()</script> ';
-                              
+
                               echo'</a>';
                             }else{
                                 echo'<a class="nav-link"  id = "mo"  name="mo"data-toggle="modal" data-target="#modal_lista" onclick= "abrir()"    >';
@@ -146,13 +154,13 @@
                                 echo '</span>';
                                 echo '<script>document.formulario_noti.action = "/notificaciones"</script> ';
                                 echo  '<script>document.getElementBy("mo").data-target="#modal_lista"</script> ';
-                             
+
                                 echo'</a>';
 
-                            }                                
-                               ?>      
-                               
-                             
+                            }
+                               ?>
+
+
                              </form>
 
                         </li>
@@ -427,7 +435,7 @@ function abrir(){
                         <button type="button" class=" btn-info " href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                         Cerrar                        
+                         Cerrar
                         </button>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -438,12 +446,12 @@ function abrir(){
         </div>
         <!-- FIN MODAL CERRAR SESION -->
 
-        
+
         <!-- INICIO INFORMACION USUARRIO -->
 
 
-        
-       
+
+
 
 
         <div class="modausuario " id="modal_infousuario">
@@ -456,19 +464,19 @@ function abrir(){
                       <p ><button  style=" text-align: justify; background-color: #000000; text-align:center; width : 395px; color:ffffff;  border-radius: .4em; margin: -0.7px 0.6em -0.5em -0.5em;"> Email: {{auth()->user()->email}}</button></p>
                       <p > <button style=" text-align: justify; background-color: #000000;   text-align:center; width : 395px; color:ffffff;   border-radius: .4em;  margin: -0.7px 0.6em -0.5em -0.5em; ">Código: {{auth()->user()->codigo}} </button></p>
                       <?php if(auth()->user()->id_planta === 0):?>
-                       <p ><button style=" text-align: justify; background-color: #000000; text-align:center;  width : 395px; color:ffffff;  border-radius: .4em;   margin:-0.7px 0.6em -1em -0.5em;"> Sucursal: Todas las Sucursales</button></p>                       
+                       <p ><button style=" text-align: justify; background-color: #000000; text-align:center;  width : 395px; color:ffffff;  border-radius: .4em;   margin:-0.7px 0.6em -1em -0.5em;"> Sucursal: Todas las Sucursales</button></p>
                       <?php elseif(auth()->user()->id_planta === 1):?>
-                       <p ><button style=" text-align: justify; background-color: #000000; text-align:center; width : 395px; color:ffffff;   border-radius: .4em;  margin: -0.7px 0.6em -1em -0.5em;"> Sucursal: Paraíso Cigars  </button></p>                         
+                       <p ><button style=" text-align: justify; background-color: #000000; text-align:center; width : 395px; color:ffffff;   border-radius: .4em;  margin: -0.7px 0.6em -1em -0.5em;"> Sucursal: Paraíso Cigars  </button></p>
                       <?php elseif(auth()->user()->id_planta === 2):?>
-                       <p > <button style=" text-align: justify; background-color: #000000; text-align:center;  width : 395px; color:ffffff;  border-radius: .4em; margin:-0.7px 0.6em -1em -0.5em; ">>Sucursal: Morocelí </button> </p>                         
+                       <p > <button style=" text-align: justify; background-color: #000000; text-align:center;  width : 395px; color:ffffff;  border-radius: .4em; margin:-0.7px 0.6em -1em -0.5em; ">>Sucursal: Morocelí </button> </p>
                       <?php elseif(auth()->user()->id_planta === 3):?>
-                       <p ><button style=" text-align: justify; background-color: #000000;  text-align:center; width : 395px; color:ffffff;   border-radius: .4em; margin: -0.7px 0.6em -1em -0.5em;" > Sucursal: San Marcos </button> </p>                         
+                       <p ><button style=" text-align: justify; background-color: #000000;  text-align:center; width : 395px; color:ffffff;   border-radius: .4em; margin: -0.7px 0.6em -1em -0.5em;" > Sucursal: San Marcos </button> </p>
                       <?php elseif(auth()->user()->id_planta === 4):?>
-                       <p > <button style=" text-align: justify; background-color: #000000; text-align:center;  width : 395px; color:ffffff;  border-radius: .4em;  margin:-0.7px 0.6em -1em -0.5em; ">Sucursal: Gualiqueme</button></p>  
+                       <p > <button style=" text-align: justify; background-color: #000000; text-align:center;  width : 395px; color:ffffff;  border-radius: .4em;  margin:-0.7px 0.6em -1em -0.5em; ">Sucursal: Gualiqueme</button></p>
                       <?php endif ?>
-                     
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -560,6 +568,19 @@ function abrir(){
                 </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function () {
+
+            $(".select_search").select2({
+            dropdownParent: $("#modal_enviarmoldes_paraiso")
+        });
+
+
+
+});
+
+            </script>
         <!-- FIN MODAL CERRAR SESION -->
 
         @yield('content')
@@ -574,6 +595,7 @@ function abrir(){
 
 
     <!-- Font Awesome JS -->
+
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
@@ -600,6 +622,8 @@ function abrir(){
             });
         });
     </script>
+
+
 
 
 

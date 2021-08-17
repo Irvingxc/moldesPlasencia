@@ -596,7 +596,7 @@
                                     <div class="mb-5 col">
                                         <label for="id_tipo" class="form-label"
                                             style="width:180px; text-align:center; font-size:20px;">Tipo moldes</label>
-                                        <select class="form-control" id="id_tipo" name="id_tipo"
+                                        <select class="select_search" id="id_tipo" name="id_tipo"
                                             style="width:180px; text-align:center; height: 50px; text-align:center; font-size:18px;"
                                             placeholder="Selecciona la sucursal" required>
                                             @foreach($moldes as $molde)

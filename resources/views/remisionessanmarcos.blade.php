@@ -9,12 +9,14 @@
 <!-- Libreria de las alertas -->
 
 <head>
+
     <script src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js') }}"></script>
     <link rel="stylesheet"
         href="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css') }}">
 
     <!-- para saber la fecha -->
     <script src="https://momentjs.com/downloads/moment.js"></script>
+
 
 
 
@@ -618,8 +620,8 @@
                                             <label for="id_tipo" class="form-label"
                                                 style="width:180px; text-align:center; font-size:20px;">Tipo
                                                 moldes</label>
-                                            <select class="form-control" id="id_tipo" name="id_tipo"
-                                                style="width:180px; text-align:center; height: 50px; text-align:center; font-size:18px;"
+                                            <select class="select_search" id="id_tipo" name="id_tipo"
+                                                style="text-align:center; text-align:center; font-size:18px;"
                                                 placeholder="Selecciona la sucursal" required>
                                                 @foreach($moldes as $molde)
                                                 <option value="{{$molde-> fivi}}">{{$molde-> fivi}}</option>
