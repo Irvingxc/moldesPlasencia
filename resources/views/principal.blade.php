@@ -22,6 +22,9 @@
   height: 50px !important;
 
 }
+.form-control{
+    height: 50px !important;
+}
   </style>
 
 
@@ -581,6 +584,18 @@ function abrir(){
 });
 
             </script>
+             <script>
+                $(document).ready(function () {
+
+                $(".vitolas_search").select2({
+                dropdownParent: $("#modal_agregar_moldes")
+            });
+
+
+
+    });
+
+                </script>
         <!-- FIN MODAL CERRAR SESION -->
 
         @yield('content')

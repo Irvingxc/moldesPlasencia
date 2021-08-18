@@ -550,6 +550,7 @@
 
                                             <input name="id_planta" id="id_planta" value="1" style="display:none">
                                             <input name="chequear" id="chequear" value="0" style="display:none">
+                                            <input type="text" name="id_molde" hidden>
 
                                             <input name="activo" id="activo" value="0" style="display:none">
                                             <input name="id_otra_plan" id="id_otra_plan" value="" style="display:none">
@@ -605,7 +606,7 @@
                                                 style="width:180px; text-align:center; height: 50px; text-align:center; font-size:18px;"
                                                 placeholder="Selecciona la sucursal" required>
                                                 @foreach($moldes as $molde)
-                                                <option value="{{$molde-> fivi}}">{{$molde-> fivi}}</option>
+                                                <option value="{{$molde-> fivi}}">{{ $molde-> fivi}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

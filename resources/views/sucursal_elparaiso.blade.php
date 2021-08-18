@@ -163,7 +163,7 @@
 
                             <div class="mb-3 col">
                                 <label for="txt_vitola" class="form-label">Vitola</label>
-                                <select class="form-control" type="text" list="prediccionvitola" id="txt_vitola"
+                                <select class="vitolas_search" type="text" list="prediccionvitola" id="txt_vitola"
                                     name="id_vitola" placeholder="Ingresa la vitola" style="overflow-y: scroll;"required>
                                     @foreach($vitolas as $vitola)
                                     <option style="overflow-y: scroll;">{{$vitola-> nombre_vitola}}</option>
