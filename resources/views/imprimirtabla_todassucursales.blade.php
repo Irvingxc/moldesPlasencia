@@ -1,7 +1,7 @@
 
 <title>Reporte Inventario De Moldes <?php echo($fecha);?></title>
 
- 
+
 
 
 <div class="row" style="width: 100%;margin:10px; text-align:center;">
@@ -13,31 +13,31 @@
 <div class="col">
 
 <div style="text-size:20px;margin-bottom:5px;">Fecha:  <?php echo($fecha);?></div>
-      
+
 
 <table  style="width: 100% ;border: solid 2px;">
         <thead >
         <tr style="text-align: center;">
-            
+
             <th style="padding: 2px;text-align: center;border: solid .5px;width:150px" >Figura y tipo</th>
             <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Buenos</th>
-            <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Irregulares</th>
+            <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Disponible</th>
             <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Malos</th>
             <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Bodega</th>
             <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Reparación</th>
             <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Salón</th>
             <th style="padding: 2px;text-align: center;border: solid .5px;width:65px" >Total</th>
-            
+
          </tr>
-            
+
          </thead>
          <tbody>
 
          @foreach($moldes as $molde)
-        
-            <tr style = "font-size:10px; height:10px;"> 
-           
-                  <td style="padding: 2px;border: solid .5px;width:100px" > {{$molde->figura_vitola}}</td> 
+
+            <tr style = "font-size:10px; height:10px;">
+
+                  <td style="padding: 2px;border: solid .5px;width:100px" > {{$molde->figura_vitola}}</td>
                   <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >{{$molde->total_bueno}}</td>
                   <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >{{$molde->total_irregulares}}</td>
                   <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >{{$molde->total_malo}}</td>
@@ -45,20 +45,20 @@
                   <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >{{$molde->total_repacion}}</td>
                   <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >{{$molde->total_salon}}</td>
                   <td style="padding: 2px;border: solid .5px;text-align: right; width:50px; font:bold;" >{{$molde->total}}</td>
-          
+
              </tr>
              @endforeach
              <tr style ="font-size:10px; font:bold;">
-            <td style="padding: 2px;text-align: center;border: solid .5px;width:50px" ><strong>Moldes Plasencia</strong></td>          
+            <td style="padding: 2px;text-align: center;border: solid .5px;width:50px" ><strong>Moldes Plasencia</strong></td>
              <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >
-            
+
                 <?php
                 $suma_b=0;
                 foreach ($moldes as $molde)
                  {
                   $suma_b+=$molde->total_bueno;
                 }
-                
+
                 ?>   {{$suma_b}}    </td>
             <td style="padding: 2px;text-align: right;border: solid .5px;width:50px" >
               <?php
@@ -119,6 +119,6 @@
             </div>
           </tbody>
     </table>
-    
-   
+
+
 

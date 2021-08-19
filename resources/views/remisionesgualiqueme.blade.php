@@ -121,7 +121,7 @@
         <form action="" method="POST" name="formulario_imprimir" id="formulario_imprimir " class=" form-inline">
 
             @csrf
-            <input name="fechainicio" id="fechainicio" hidden value={{$fechai}}>
+            <input name="fechainicio" id="fechainicio" hidden value={{$fechai}} hidden>
             <input name="fechafin" id="fechafin" hidden value={{$fechaf}}>
 
             <button type="submit" class=" btn-info float-right " style="margin-left: 5px; margin-bottom: 0px;">

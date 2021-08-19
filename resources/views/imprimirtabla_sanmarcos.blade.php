@@ -61,14 +61,6 @@
                 ?>   {{$suma_b}}
             </td>
             <td style="padding: 5px;border: solid .05px; text-align:right " >
-              <?php
-               $suma_i=0;
-                foreach ($moldes as $molde)
-                 {
-                  $suma_i+=$molde->irregulares;
-                }
-                ?>   {{$suma_i}}</td>
-            <td style="padding: 5px;border: solid .05px; text-align:right " >
             <?php
              $suma_m=0;
                 foreach ($moldes as $molde)

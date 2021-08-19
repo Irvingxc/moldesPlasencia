@@ -123,7 +123,7 @@
 
 
 
-        <form action="" method="POST" name="formulario_imprimir" id="formulario_imprimir " class=" form-inline">
+        <form action="" method="POST" name="formulario_imprimir" id="formulario_imprimir " class=" form-inline" hidden>
 
             @csrf
             <input name="fechainicio" id="fechainicio" hidden value={{$fechai}}>

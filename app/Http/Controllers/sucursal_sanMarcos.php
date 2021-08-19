@@ -452,7 +452,7 @@ class sucursal_sanMarcos extends Controller
            $moldes = \DB::select('call buscar_remision(:fecha_inicio,:fecha_fin,:id_planta_remision)',
            [ 'fecha_inicio' => $incio,
            'fecha_fin' => $fin,
-           'id_planta_remision' => $request->id_planta_re]);
+           'id_planta_remision' => 3]);
 
             $vista = view('imprimir_remisiones_sanMarcos_enviadas')->with('titulo',$titulo)
             ->with('moldes', $moldes)->with ('notificaciones', $notificaciones)->with('fecha', $fecha)  ->with('fechai',$fechai)->with('fechaf',$fechaf);
