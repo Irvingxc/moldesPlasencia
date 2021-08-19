@@ -167,6 +167,7 @@
                         <th style='text-align: center;' scope="col">Estado</th>
                         <th style='text-align: center;' scope="col">Tipo de molde</th>
                         <th style='text-align: center; width:80px;' scope="col">Cantidad</th>
+                        <th style='text-align: center;' scope="col">Procesar</th>
                         <th style='text-align: center;' scope="col">Cancelar</th>
                 </thead>
                 <tbody>
@@ -179,6 +180,27 @@
                         <td>{{$remision->tipo_moldes}}</td>
                         <td style="text-align:right; font:bold; width:80px;"><strong>{{$remision->cantidad}}</strong>
                         </td>
+
+                        <td style="text-align:center; font:bold;"><strong>
+                            <form method="post" action="{{route('procesar_remision_paraiso', ['1'])}}">
+                                {{csrf_field()}}
+                                <input type="text" name="remi" value="{{$remision->id_remision}}" hidden>
+                                <input type="text" name="plan_id" value="{{$remision->id_planta}}" hidden>
+                                <input type="text" name="est" value="Buenos" hidden>
+                                <input type="text" name="tip_mol" value="{{$remision->tipo_moldes}}" hidden>
+                                <input type="text" name="cant" value="{{$remision->cantidad}}" hidden>
+                                <input type="text" name="para_planta" value="{{$remision->nombre_fabrica}}" hidden>
+
+                                <button @if ($remision->chequear ==1)disabled @endif>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                    <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                                  </svg>
+                                </button>
+                            </form>
+                        </strong>
+                    </td>
+
+
                         <td style="text-align:center; font:bold;"><strong>
                             @if($remision->chequear == 0)
                             <form method="post" action="{{route('eliminar_remision_Paraiso', [$remision->id_remision])}}" class="formulario-eliminar">
@@ -218,7 +240,7 @@
                         <th style='text-align: center;' scope="col">Estado</th>
                         <th style='text-align: center;' scope="col">Tipo de molde</th>
                         <th style="text-align:center; width:80px; font:bold;">Cantidad</th>
-                        <th style='text-align: center;' scope="col">Confirmar</th>
+                        <th style='text-align: center;' scope="col" hidden>Confirmado</th>
                 </thead>
                 <tbody>
 
@@ -226,15 +248,14 @@
 
                     <?php if ($remision->chequear == 0): ?>
 
-                    <tr>
 
-                    <tr>
+                    <tr hidden>
                         <td>{{$remision->fecha}}</td>
                         <td>{{$remision->nombre_planta}}</td>
                         <td>{{$remision->estado_moldes}}</td>
                         <td>{{$remision->tipo_moldes}}</td>
                         <td style="text-align:right; font:bold;"><strong>{{$remision->cantidad}}</strong></td>
-                        <td class="table-warning" style="padding:0px; text-align:center;    vertical-align: inherit;">
+                        <td class="table-warning" style="padding:0px; text-align:center;    vertical-align: inherit;" hidden>
                             <a data-toggle="modal" data-target="#modal_confirmar_remision"
                                 onclick="datos_remisiones({{ $id_remision_basico = $remision->id_remision }})">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black"
@@ -250,13 +271,13 @@
 
                     <?php else:; ?>
 
-                    <tr>
+                    <tr >
                         <td>{{$remision->fecha}}</td>
                         <td>{{$remision->nombre_planta}}</td>
                         <td>{{$remision->estado_moldes}}</td>
                         <td>{{$remision->tipo_moldes}}</td>
                         <td style="text-align:right; font:bold;"><strong>{{$remision->cantidad}}</strong></td>
-                        <td style="text-align:center;" class="table-success"> Chequeado</td>
+                        <td style="text-align:center;" class="table-success" hidden> Chequeado</td>
 
                     </tr>
 

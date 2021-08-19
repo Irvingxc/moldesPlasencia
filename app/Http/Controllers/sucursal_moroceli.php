@@ -197,6 +197,23 @@ class sucursal_moroceli extends Controller
 
         }
 
+        public function procesar(Request $request){
+            $procesar = \DB::select('call preparandoProcesar(:id_remision, :id_planta,:estado,:fivi,
+            :cantidad,:planta_recibido,:nombre_otra_planta)',
+
+            [
+                'id_remision' => (int)$request->remi,
+                'id_planta' => (int)$request->plan_id,
+                'estado' => (string)$request->est,
+                'fivi' => (string)$request->tip_mol,
+                'cantidad' => (int)$request->cant,
+     //           'id_molde' => (int)$request->id_molde,
+                'planta_recibido' => (string)$request->plan_id,
+                'nombre_otra_planta'=> (string)$request->para_planta
+            ]);
+            return REDIRECT('/remisiones_moroceli/2');
+        }
+
         public function deleteremisiones(Request $request, $id){
             $molde = \DB::select('call deleteremisiones(:id_remision)',
             [

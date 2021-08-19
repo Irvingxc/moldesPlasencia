@@ -111,7 +111,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto navbar-btn" >
-
+<!--
                         <li class="nav-item">
                             <form action="" method="Post">
 
@@ -167,6 +167,7 @@
                              </form>
 
                         </li>
+                    -->
 
 
                         <li class="nav-item">
