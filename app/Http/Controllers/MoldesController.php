@@ -172,8 +172,9 @@ use Carbon\Carbon;
 
          public function insertarremisiones( Request $request) {
 
-                $fecha =Carbon::now();
-                $fecha = $fecha->format('Y-m-d');
+              /*  $fecha =Carbon::now();
+                $fecha = $fecha->format('Y-m-d'); */
+                $fecha = $request->txt_fecha;
                 $empresa = "";
                 $fechai = $request->fecha_inicio;
                 $fechaf = $request->fecha_fin;

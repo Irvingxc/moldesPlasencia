@@ -169,7 +169,6 @@ Route::post('/remisiones_sanMarcos/ac/{id}',[App\Http\Controllers\sucursal_sanMa
 Route::get('/buscar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'buscar_remision' ])->name('buscar_remision_sanMarcos');
 Route::delete('/eliminar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'deleteremisiones' ])->name('eliminar_remision_sanMarcos');
 Route::post('/procesar_remision_sanMarcos/crear/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'procesar' ])->name('procesar_remision_sanMarcos');
-Route::get('/procesar_remision_sanMarcos/crear/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'procesar' ])->name('procesar_remision_sanMarcos');
 Route::post('/buscar_remision_sanMarcos/{id}',[App\Http\Controllers\sucursal_sanMarcos::class, 'buscar_remision' ])->name('buscar_remision_sanMarcos');
 
 

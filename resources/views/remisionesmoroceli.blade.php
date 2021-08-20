@@ -563,6 +563,15 @@
 
                                 <div class="row">
 
+                                    <div class="mb-5 col">
+                                        <label for="txt_cantidad" class="form-label"
+                                            style="width:180px; text-align:center; font-size:20px;">Fecha</label>
+                                        <input value="{{Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" type="date" id="txt_fecha"
+                                            style="width:180px; text-align:center; height: 50px; text-align:center; font-size:18px;"
+                                            name="txt_fecha" minLength="1"
+                                            maxLength="10" required>
+                                    </div>
+
 
                                     <div class="mb-5 col">
 

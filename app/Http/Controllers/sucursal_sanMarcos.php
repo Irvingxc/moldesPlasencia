@@ -171,8 +171,9 @@ class sucursal_sanMarcos extends Controller
         public function insertarremisiones( Request $request)
         {
 
-                $fecha =Carbon::now();
-                $fecha = $fecha->format('Y-m-d');
+               /* $fecha =Carbon::now();
+                $fecha = $fecha->format('Y-m-d');*/
+                $fecha = $request->txt_fecha;
                 $empresa = "";
 
                 $fechai = $request->fecha_inicio;
