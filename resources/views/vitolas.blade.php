@@ -13,7 +13,7 @@
 
     <div class="col form-inline">
 
-        <form action="{{Route('id_planta',1)}}" method="POST" class="form-inline">
+       <!-- <form action="{{Route('id_planta',1)}}" method="POST" class="form-inline">
             @csrf
             <input value="" onKeyDown="copiar('vitolabuscar','vitolaimprimir');" name="vitolabuscar" id="vitolabuscar"
                 class="form-control mr-sm-2" placeholder="Vitola" style="width:150px;" autocomplete="off">
@@ -29,6 +29,7 @@
                 </span>
             </button>
         </form>
+    -->
 
         <form action="{{Route('excel')}}" method="POST" enctype="multipart/form-data" class="form-inline">
             @csrf
@@ -344,6 +345,28 @@
 
 <input type="button" hidden onclick="quitarOculto()">
 
+<select name="planta-select" id="cambio" hidden>
+    <option value="San Marcos">San Marcos</option>
+    <option value="El Paraiso">El Paraiso</option>
+</select>
+
+<script>
+    $('#cambio').change(function(){
+
+        if($('#cambio').val() == 'El Paraiso'){
+        $('#Para').removeAttr('hidden');
+        $('#San').prop('hidden', true)
+       // $('#San').show("slow");
+       // $('#San').hide("slow");
+
+        }else if($('#cambio').val() == 'San Marcos'){
+            $('#San').removeAttr('hidden');
+            $('#Para').prop('hidden', true);
+        }
+    })
+</script>
+<br>
+
 <!-- INICIO DEL TABLA MOLDE -->
 <div class="row">
     <div class="col-md-3">
@@ -357,7 +380,7 @@
 
         <tr>
     </thead>
-    <tbody class="borrar">
+    <tbody id="San">
 
         <tr >
             <p id="borrar">@foreach($vitola as $vitola) </p>
@@ -384,6 +407,38 @@
 
 
     <tbody>
+
+
+        <tbody id="Para" hidden>
+
+            <tr >
+                <p id="borrar">@foreach($vitolaPara as $vitola) </p>
+                <td >{{$vitola->vitola}}</td>
+
+
+                <?php if ( auth()->user()->id_planta == 1 ||  auth()->user()->id_planta == 0): ?>
+                <td style="padding:0px; text-align:center;    vertical-align: inherit;">
+                    <a data-toggle="modal" data-target="#modal_agregar_vitola_update"
+                        onclick="datos_modal('{{ $vitola->vitola }}', {{$vitola->id_vitola}})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width=25 height="25" fill="black"
+                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path
+                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd"
+                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                        </svg>
+
+                    </a>
+                </td>
+                <?php endif  ?>
+
+            </tr @endforeach>
+
+
+        <tbody>
+
+
+
 </table>
 </div>
 <script>

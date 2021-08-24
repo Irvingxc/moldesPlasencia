@@ -24,10 +24,7 @@ class VitolaController extends Controller
         $titulo = "Moldes y Vitolas";
         $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
             'id' => auth()->user()->id_planta ] );
-        $vitola = \DB::select('call MostrarTodasVitolas');
-        $figura = \DB::select('call MostrarTodasFiguras');
-        return REDIRECT('/verfiguraytipo')->with('vitola',  $vitola)->with('titulo', $titulo)->with('notificaciones', $notificaciones)
-        ->with('figura', $figura);
+        return REDIRECT('/verfiguraytipo');
     }
     public function index()
     {
@@ -61,8 +58,6 @@ class VitolaController extends Controller
         $titulo = "Moldes y Vitolas";
         $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
             'id' => auth()->user()->id_planta ] );
-        $vitola = \DB::select('call MostrarTodasVitolas');
-        $figura = \DB::select('call MostrarTodasFiguras');
         return REDIRECT('/verfiguraytipo');
         /*->with('vitola',  $vitola)->with('titulo', $titulo)->with('notificaciones', $notificaciones)
         ->with('figura', $figura);*/
@@ -91,8 +86,6 @@ class VitolaController extends Controller
         $titulo = "Moldes y Vitolas";
         $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
             'id' => auth()->user()->id_planta ] );
-        $vitola = \DB::select('call MostrarTodasVitolas');
-        $figura = \DB::select('call MostrarTodasFiguras');
        // return $this->index1();
         return REDIRECT('/verfiguraytipo');
         /*->with('vitola',  $vitola)->with('titulo', $titulo)->with('notificaciones', $notificaciones)
@@ -107,8 +100,6 @@ class VitolaController extends Controller
         $titulo = "Moldes y Vitolas";
         $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
             'id' => auth()->user()->id_planta ] );
-        $vitola = \DB::select('call MostrarTodasVitolas');
-        $figura = \DB::select('call MostrarTodasFiguras');
        // return $this->index1();
         return REDIRECT('/verfiguraytipo');
         /*->with('vitola',  $vitola)->with('titulo', $titulo)->with('notificaciones', $notificaciones)
@@ -124,9 +115,6 @@ class VitolaController extends Controller
         $titulo = "Moldes y Vitolas";
         $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
             'id' => auth()->user()->id_planta ] );
-        $vitola = \DB::select('call MostrarTodasVitolas');
-        $figura = \DB::select('call MostrarTodasFiguras');
-        $material = \DB::select('call MostrarTodosMateriales');
         return REDIRECT('/verfiguraytipo');
         /*->with('vitola',  $vitola)->with('titulo', $titulo)->with('notificaciones', $notificaciones)
         ->with('figura', $figura);*/
@@ -141,9 +129,6 @@ class VitolaController extends Controller
         $titulo = "Moldes y Vitolas";
         $notificaciones = \DB::select("call mostrar_notificaciones(:id)",[
             'id' => auth()->user()->id_planta ] );
-        $vitola = \DB::select('call MostrarTodasVitolas');
-        $figura = \DB::select('call MostrarTodasFiguras');
-        $material = \DB::select('call MostrarTodosMateriales');
        // return $this->index1();
         return REDIRECT('/verfiguraytipo');
         /*->with('vitola',  $vitola)->with('titulo', $titulo)->with('notificaciones', $notificaciones)
