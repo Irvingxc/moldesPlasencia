@@ -192,7 +192,7 @@
                             <div class="mb-3 col">
                                 <label for="txt_vitola" class="form-label">Vitola</label>
                                 <select class="vitolas_search" type="text" list="prediccionvitola" id="txt_vitola"
-                                    name="id_vitola" placeholder="Ingresa la vitola" required>
+                                    name="id_vitola" style = "width:90%;" placeholder="Ingresa la vitola" required>
                                     @foreach($vitolas as $vitola)
                                     <option>{{$vitola-> nombre_vitola}}</option>
                                     @endforeach

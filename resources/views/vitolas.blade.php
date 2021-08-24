@@ -342,6 +342,7 @@
 
 <!-- FIN DEL MODAL EDITAR MOLDE -->
 
+<input type="button" hidden onclick="quitarOculto()">
 
 <!-- INICIO DEL TABLA MOLDE -->
 <div class="row">
@@ -356,9 +357,10 @@
 
         <tr>
     </thead>
-    <tbody>
-        @foreach($vitola as $vitola)
-        <tr>
+    <tbody class="borrar">
+
+        <tr >
+            <p id="borrar">@foreach($vitola as $vitola) </p>
             <td >{{$vitola->vitola}}</td>
 
 
@@ -378,13 +380,31 @@
             </td>
             <?php endif  ?>
 
+        </tr @endforeach>
 
-        </tr>
-        @endforeach
 
     <tbody>
 </table>
 </div>
+<script>
+    function cambioContenido(){
+
+        var nuevo = document.createElement("p");
+        nuevo.innerHTML= '@foreach($vitolaPara as $vitola)';
+        var nada = '@endforeach';
+        var cambio = document.getElementById('borrar');
+        cambio.parentNode.replaceChild(nuevo,cambio);
+    }
+
+    function quitarOculto(){
+        var quitar = $(".borrar");
+        console.log(quitar)
+        quitar.removeAttr('hidden');
+    }
+
+</script>
+
+
 <script>
     function datos_modal(id_vi, id){
 
